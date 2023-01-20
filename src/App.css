@@ -1,0 +1,98 @@
+.App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  font-size: 20px;
+}
+.generator {
+  position: relative;
+  margin: 300px auto 0;
+  width: 550px;
+  height: 250px;
+  background: linear-gradient(0deg, rgb(50, 129, 197), #0b0b0b);
+  align-content: center;
+  padding: 30px;
+  min-height: 42vh;
+}
+.generator-header {
+  text-align: center;
+  font-style: italic;
+  color: rgb(212, 212, 222);
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+.generator-password {
+  background-color: #e2c9dc;
+  padding: 23px 10px;
+  color: rgb(11, 11, 11);
+  margin-bottom: 35px;
+  height: 56px;
+  text-shadow: 2px 2px grey;
+  display: flex;
+  justify-content: center;
+}
+
+.generator-btn {
+  background: #e2c9dc;
+  border: none;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  color: black;
+  text-shadow: 2px 2px grey;
+  border-radius: 30px;
+  font-size: 20px;
+}
+.generator:before,
+.generator:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 25s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.generator:after {
+  filter: blur(50px);
+}
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(222, 211, 211);
+
+  margin-bottom: 15px;
+}
+.pw {
+  font-size: 20px;
+}
