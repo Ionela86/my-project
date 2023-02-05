@@ -8,13 +8,14 @@
 }
 .generator {
   position: relative;
-  margin: 300px auto 0;
+  margin: 100px auto 0;
+
   width: 550px;
   height: 250px;
   background: linear-gradient(0deg, rgb(50, 129, 197), #0b0b0b);
   align-content: center;
   padding: 30px;
-  min-height: 42vh;
+  min-height: 55vh;
 }
 .generator-header {
   text-align: center;
@@ -95,4 +96,18 @@
 }
 .pw {
   font-size: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .App .generator {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .generator-btn {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
 }

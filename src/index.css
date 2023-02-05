@@ -5,7 +5,8 @@
 }
 body {
   margin: 0;
-  padding: 0;
+  width: auto;
+  padding: p;
   background-color: rgba(13, 13, 13, 0.927);
   font-family: sans-serif;
 }

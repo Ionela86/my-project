@@ -7,4 +7,4 @@ This application is an automatic password generator depending on the chosen opti
 
   The application is made in REACT
 
-(https://myproject-password-generator.netlify.app/)
+https://myproject-password-generator.netlify.app/

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import {
   numbers,
@@ -14,6 +16,7 @@ function App() {
   const [includeLowerCase, setIncludeLowerCase] = useState(false);
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
+
   const handleGeneratePassword = () => {
     if (
       !includeUpperCase &&
@@ -21,6 +24,10 @@ function App() {
       !includeNumbers &&
       !includeSymbols
     ) {
+      notifyOne(
+        "To generate the password, you must check at least one checkbox and choose the length of the password",
+        true
+      );
     } else {
       let characterList = "";
       if (includeNumbers) {
@@ -36,8 +43,10 @@ function App() {
         characterList = characterList + specialCharacters;
       }
       setPassword(createPassword(characterList));
+      notifyTwo("Password is generated successfully ⭐", false);
     }
   };
+
   const createPassword = (characterList) => {
     let password = "";
     const characterListLength = characterList.length;
@@ -47,6 +56,36 @@ function App() {
     }
     return password;
   };
+  const handleDelete = () => {
+    setPassword("");
+    setPasswordLength(false);
+    setIncludeUpperCase(false);
+    setIncludeLowerCase(false);
+    setIncludeNumbers(false);
+    setIncludeSymbols(false);
+    setTimeout(function () {
+      window.location.reload();
+    }, 1500);
+    notifyThree("Your password has been deleted. Try another password", false);
+  };
+  const notifyOne = () =>
+    toast.error(
+      "To generate the password, you must check at least one checkbox and choose the length of the password.",
+      {
+        position: toast.POSITION.TOP_LEFT,
+        autoClose: 5000,
+      }
+    );
+  const notifyTwo = () =>
+    toast.success("Password is generated successfully ⭐", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2500,
+    });
+  const notifyThree = () =>
+    toast.warn("Your password has been deleted. Try another password.", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2000,
+    });
 
   return (
     <div className="App">
@@ -111,6 +150,12 @@ function App() {
           </div>
           <button onClick={handleGeneratePassword} className="generator-btn">
             Generate Password
+          </button>
+
+          <ToastContainer />
+
+          <button onClick={handleDelete} className="generator-btn">
+            Delete
           </button>
         </div>
       </div>
